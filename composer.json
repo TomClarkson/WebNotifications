@@ -1,0 +1,23 @@
+{
+    "name": "tom-clarkson/web-notifications",
+    "description": "Web Notifications",
+    "authors": [
+        {
+            "name": "Tom Clarkson",
+            "email": "tom@designsight.co.nz"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "TomClarkson\\WebNotifications\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
