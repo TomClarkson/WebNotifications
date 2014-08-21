@@ -1,4 +1,4 @@
-<?php namespace TomClarkson\WebNotifications;
+<?php namespace TomClarkson\WebNotifications; 
 
 use Illuminate\Support\ServiceProvider;
 

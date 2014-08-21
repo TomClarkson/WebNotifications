@@ -1,0 +1,99 @@
+
+
+<p>Test the view is all good!</p>
+
+<pre>{{ notifications }}</pre>
+
+<!-- // just a hack to get the border at the bottom -->
+<style>
+.notifications-panel-heading {
+    border-bottom: 1px solid #ddd;
+    padding-top: 8px;
+    padding-bottom: 25px;
+    font-size: 13px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.userImg50 {
+    width: 50px;
+}
+
+.notification-media {
+    border-bottom: 1px solid #ddd;
+    margin-top: 0px;
+    padding: 10px;
+}
+
+.unread {
+  background: #EBF6FF;
+}
+
+.notification-media:hover {
+  background: #EBF6FE;
+}
+
+</style>
+
+<h1>Custom directive</h1>
+
+<notification-dropdown></notification-dropdown>
+
+<button class="btn btn-success" ng-click="addNotification()">Add Notification</button>
+ 
+
+<h1>Teacher Notifications</h1>
+
+Lesson Booked Notification
+- triggered by: when a lesson is booked
+- message: "josh booked your lesson"
+- url: /lessons/{id}
+
+Feedback Placed Notification
+- triggered by: when student places feedback
+- message: "josh gave your lesson a rating of 5"
+- url: /lessons/{id}
+
+Lesson Comment Notification
+- triggered by: when student posts a comment to the lesson
+- message: josh commented "start of the comment.."
+- url: /lessons/{id}
+
+Teacher Application Accepted/Declined
+- triggered by: when a teacher is accepted or declined as a PT/LT by admin
+- message: "your application has been accepted/declined"
+- url: ? if teacher teacher/settings
+
+Invoice Paid
+- triggered by: when admin pays invoice
+- message: "Your invoice has been paid"
+- url: /credits
+
+Dispute Raised
+- triggered by: when student disputes a lesson
+- message: "josh disputed your lesson"
+- url: /lessons/{id}
+
+Dispute Verdict applied
+- triggered by: when admin verdict applied
+- message: "dispute was awarded in your favour"
+- url: /credits
+
+<h1>Student Notifications</h1>
+
+Place Feedback Notification
+- triggered by: 3 days after a lesson is complete
+- message: "please approve/decline lesson"
+- url: /lessons/{id}
+
+Lesson Comment Notification
+- triggered by: when teacher posts a comment to the lesson
+- message: teacher commented "start of the comment.."
+- url: /lessons/{id}
+
+Dispute Verdict applied
+- triggered by: when admin verdict applied
+- message: "dispute was awarded in your favour"
+- url: /credits
+
+

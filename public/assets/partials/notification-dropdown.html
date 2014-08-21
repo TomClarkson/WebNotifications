@@ -1,0 +1,39 @@
+<li class="dropdown" on-toggle="toggled(open)" ng-click="markAllAsSeen()">
+      <a href class="dropdown-toggle">
+        <i class="fa fa-globe"></i>
+        <span ng-if="notificationService.countUnseenAndUnread() > 0" class="badge badge-notes navbar-complementary-bg">
+            {{ notificationService.countUnseenAndUnread() }}
+        </span>
+      </a>
+      <ul class="dropdown-menu notifications-dropdown-menu" ng-click="$event.stopPropagation()">
+        <div class="panel panel-large panel-notifications">
+            <div class="panel-heading notifications-panel-heading">
+                <div class="pull-right"><span ng-click="markAllAsRead()">mark all read</span></div>
+                <div class="pull-left"><strong>Notifications</strong></div>
+            </div>
+            <div ng-repeat="notification in notifications = notificationService.getNotifications() | orderBy:'id':true" class="media notification-media userSmall {{notification.seenState == 'SEEN_AND_READ' ? '' : 'unread'}}">
+                <a class="pull-left" href="#">
+                    <img class="media-object userImg50 img-responsive" ng-src="{{notification.thumbnail}}" alt="">
+                </a>
+                <div class="media-body">
+                    <h5 class="media-heading"><a href="{{ notification.id }}">{{ notification.message }}</a></h5>
+                    <small class="text-muted">{{notification.timestamp | date:'medium' }}</small>
+                    
+                    <span ng-click="markAsRead(notification.id)" href="#" title="mark as read" id="close-button-{{notification.id}}" class="glyphicon glyphicon-ok"></span>
+
+                    <span ng-click="removeNotification(notification.id)" href="#" title="delete notification" id="close-button-{{notification.id}}" class="glyphicon glyphicon-remove-circle close-notification"></span>
+                </div> <!-- end of media-body -->
+            </div>                
+            
+            <div ng-if="notificationService.getNotifications().length == 0" class="media notification-media">
+                <div if="notifications.length == 0" class="panel-heading text-center">
+                    <p>No notifications</p>
+                </div> <!-- end of panel-heading -->
+            </div>
+        </div> <!-- end of panel-notifications -->
+
+        <div class="panel-footer text-center">
+            <a href="#" tabindex="-1" role="menuitem">See All</a>
+        </div> <!-- end of panel-footer -->
+    </ul>
+</li>
